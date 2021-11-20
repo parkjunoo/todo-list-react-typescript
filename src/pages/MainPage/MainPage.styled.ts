@@ -1,5 +1,5 @@
 export interface DefaultTheme {
-    dark: {};
-    light: {};
-    response: {};
+  dark: {};
+  light: {};
+  response: {};
 }
