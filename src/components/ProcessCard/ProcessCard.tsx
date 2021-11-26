@@ -1,8 +1,10 @@
+import React from 'react';
 import PropTypes from 'prop-types';
+import Styled from './ProcessCard.styled';
 
-const ProcessCard = () => {
-  return <div></div>;
-};
+function ProcessCard() {
+  return <Styled.ProcessCardWrapper />;
+}
 
 ProcessCard.propTypes = {};
 

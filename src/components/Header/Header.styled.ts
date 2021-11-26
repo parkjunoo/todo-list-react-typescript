@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 const HeaderWrapper = styled.div`
   width: 100%;
-  font-size: 20px;
+  font-size: 30px;
+  margin-top: 50px;
   display: block;
-  background-color: red;
   text-align: center;
 `;
 
