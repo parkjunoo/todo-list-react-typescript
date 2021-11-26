@@ -4,12 +4,9 @@ import Styled from './app.styled';
 
 const App = () => {
   return (
-    <>
-      <Styled.MainWrapper>
-        <Header />
-        <MainPage />
-      </Styled.MainWrapper>
-    </>
+    <Styled.MainWrapper>
+      <Header />
+    </Styled.MainWrapper>
   );
 };
 
