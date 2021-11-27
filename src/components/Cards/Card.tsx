@@ -2,15 +2,15 @@ import React from 'react';
 import Styled from './Card.styled';
 
 type CardProps = {
-  name: string;
-  mark: string;
+  name?: string;
+  mark?: string;
 };
 
 function Card({ name, mark }: CardProps) {
   return (
-    <div>
-      Hello, {name} {mark}
-    </div>
+    <Styled.CardWrapper>
+      <Styled.CardTop />
+    </Styled.CardWrapper>
   );
 }
 
