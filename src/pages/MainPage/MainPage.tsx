@@ -6,6 +6,8 @@ const MainPage = () => {
   return (
     <Page>
       <ProcessCard />
+      <ProcessCard />
+      <ProcessCard />
     </Page>
   );
 };
