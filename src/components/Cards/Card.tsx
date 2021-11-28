@@ -9,7 +9,12 @@ type CardProps = {
 function Card({ name, mark }: CardProps) {
   return (
     <Styled.CardWrapper>
-      <Styled.CardTop />
+      <Styled.CardTop>
+        <Styled.CardButtonWrapper>
+          <Styled.DeleteCardButton />
+          <Styled.ModifyCardButton />
+        </Styled.CardButtonWrapper>
+      </Styled.CardTop>
     </Styled.CardWrapper>
   );
 }

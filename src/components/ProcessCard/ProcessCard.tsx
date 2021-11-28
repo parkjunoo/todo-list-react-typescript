@@ -6,7 +6,9 @@ import Styled from './ProcessCard.styled';
 function ProcessCard() {
   return (
     <Styled.ProcessCardWrapper>
-      <div>Todoo</div>
+      <Styled.ProcessCardTop>
+        <Styled.ProcessCardOptionButton />
+      </Styled.ProcessCardTop>
       <Card />
       <Card />
       <Card />
