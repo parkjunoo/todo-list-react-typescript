@@ -10,7 +10,7 @@ function CardList({ name, mark }: CardListProps) {
   const [cardList, setCardList] = useState<object[]>();
   return (
     <div>
-      Hello, {name} {mark}
+      Hello, {name} {mark} commit 
     </div>
   );
 }
