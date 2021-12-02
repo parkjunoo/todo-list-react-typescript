@@ -3,10 +3,14 @@ import PropTypes from 'prop-types';
 import Card from '../Cards';
 import Styled from './ProcessCard.styled';
 
-function ProcessCard() {
+type ProcessCardProps = {
+  title: string;
+};
+function ProcessCard({ title }: ProcessCardProps) {
   return (
     <Styled.ProcessCardWrapper>
       <Styled.ProcessCardTop>
+        {title}
         <Styled.ProcessCardOptionButton />
       </Styled.ProcessCardTop>
       <Card />
