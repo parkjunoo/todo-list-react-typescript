@@ -7,15 +7,16 @@ type ProcessCardProps = {
   title: string;
 };
 function ProcessCard({ title }: ProcessCardProps) {
+  const CardList = () => {
+    return <Card />;
+  };
   return (
     <Styled.ProcessCardWrapper>
       <Styled.ProcessCardTop>
         {title}
         <Styled.ProcessCardOptionButton />
       </Styled.ProcessCardTop>
-      <Card />
-      <Card />
-      <Card />
+
       <Styled.ProcessCardBottom>+ add Card</Styled.ProcessCardBottom>
     </Styled.ProcessCardWrapper>
   );
