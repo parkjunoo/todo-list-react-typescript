@@ -1,28 +1,20 @@
-
-    
 {
-    "status": "ok",
-    "data": {
-        "type": "doing",
-        "cards": [
-            {
-                "cardId": 1,
-                "contants": "안녕하세요 컨텐츠 1이에요"
-            }, 
-            {
-                "cardId": 2,
-                "contants": "안녕하세요 컨텐츠 1이에요"
-
-            },
-            {
-                "cardId": 3,
-                "contants": "안녕하세요 컨텐츠 1이에요"
-            },
-            {
-                "cardId": 4,
-                "contants": "안녕하세요 컨텐츠 1이에요"
-            }]
-        
-    }
-
+  "status": "ok",
+  "data": {
+    "type": "doing",
+    "cards": [
+      {
+        "cardId": 1,
+        "contants": "안녕하세요 컨텐츠 1이에요"
+      },
+      {
+        "cardId": 2,
+        "contants": "안녕하세요 컨텐츠 1이에요"
+      },
+      {
+        "cardId": 3,
+        "contants": "안녕하세요 컨텐츠 1이에요"
+      }
+    ]
+  }
 }

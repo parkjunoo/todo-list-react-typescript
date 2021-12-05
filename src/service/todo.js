@@ -1,7 +1,7 @@
 import Api from './api';
 
-const getCardList = () => {
-  return Api.get('/todolist.json');
+const getCardList = (process) => {
+  return Api.get(`/${process}list.json`);
 };
 
 export default { getCardList };

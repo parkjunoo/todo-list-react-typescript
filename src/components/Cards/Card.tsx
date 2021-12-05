@@ -2,25 +2,21 @@ import React from 'react';
 import Styled from './Card.styled';
 
 type CardProps = {
-  name?: string;
-  mark?: string;
+  index?: number;
+  onClickDeleteCard?: () => void;
 };
 
-function Card({ name, mark }: CardProps) {
+function Card({ onClickDeleteCard, index }: CardProps) {
   return (
     <Styled.CardWrapper>
       <Styled.CardTop>
         <Styled.CardButtonWrapper>
-          <Styled.DeleteCardButton />
+          <Styled.DeleteCardButton onClick={onClickDeleteCard}>de</Styled.DeleteCardButton>
           <Styled.ModifyCardButton />
         </Styled.CardButtonWrapper>
       </Styled.CardTop>
     </Styled.CardWrapper>
   );
 }
-
-Card.defaultProps = {
-  mark: '',
-};
 
 export default Card;
