@@ -13,28 +13,29 @@ interface Card {
 
 function ProcessCard({ title }: ProcessCardProps) {
   const [cardList, setCardList] = useState<Card[]>([]);
+
   useEffect(() => {
-    console.log('!!!', getCardList());
+    getCardList();
   }, []);
 
   const getCardList = async () => {
     try {
-      const res = await todoApi.getCardList();
+      const { data } = await todoApi.getCardList();
+      setCardList(data.data.cards);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const CardList = () => {
-    return <Card />;
-  };
   return (
     <Styled.ProcessCardWrapper>
       <Styled.ProcessCardTop>
         {title}
         <Styled.ProcessCardOptionButton />
       </Styled.ProcessCardTop>
-
+      {cardList.map((e, idx) => (
+        <Card key={`cardlist-index-${idx}`} />
+      ))}
       <Styled.ProcessCardBottom>+ add Card</Styled.ProcessCardBottom>
     </Styled.ProcessCardWrapper>
   );

@@ -5,23 +5,19 @@ const instance = axios.create({
   timeout: 1000,
 });
 
-instance.interceptors.request.use(
-  function (config) {
-    return config;
-  },
-  function (error) {
-    return Promise.reject(error);
-  },
-);
-
-instance.interceptors.response.use(
-  function (response) {
-    return response;
-  },
-
-  function (error) {
-    return Promise.reject(error);
-  },
-);
+const requestSuccess = (config) => {
+  return config;
+};
+const requestFailure = (error) => {
+  return Promise.reject(error);
+};
+const responseSuccess = (response) => {
+  return response;
+};
+const reponseFailure = (error) => {
+  return Promise.reject(error);
+};
+instance.interceptors.request.use(requestSuccess, requestFailure);
+instance.interceptors.response.use(responseSuccess, reponseFailure);
 
 export default instance;

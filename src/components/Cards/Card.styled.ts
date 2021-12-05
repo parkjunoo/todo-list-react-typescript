@@ -4,7 +4,7 @@ export default {
   CardWrapper: styled.div`
     width: 95%;
     height: 100px;
-    margin-left: 8px;
+    margin-left: 4px;
     max-height: 300px;
     background-color: white;
     margin-top: 10px;
