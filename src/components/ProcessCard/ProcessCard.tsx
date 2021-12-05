@@ -1,12 +1,30 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 import Card from '../Cards';
 import Styled from './ProcessCard.styled';
+import todoApi from '../../service/todo';
 
-type ProcessCardProps = {
+interface ProcessCardProps {
   title: string;
-};
+}
+interface Card {
+  contents: string;
+  cardId: number;
+}
+
 function ProcessCard({ title }: ProcessCardProps) {
+  const [cardList, setCardList] = useState<Card[]>([]);
+  useEffect(() => {
+    console.log('!!!', getCardList());
+  }, []);
+
+  const getCardList = async () => {
+    try {
+      const res = await todoApi.getCardList();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const CardList = () => {
     return <Card />;
   };

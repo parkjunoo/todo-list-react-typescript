@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'http:localhost:3000/public/MockData',
+  baseURL: `${process.env.PUBLIC_URL}/MockData/`,
   timeout: 1000,
 });
 

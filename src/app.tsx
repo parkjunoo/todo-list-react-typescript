@@ -5,7 +5,6 @@ import NavBar from './components/NavBar';
 import Styled from './app.styled';
 
 const App = function () {
-  const a = MainPage;
   return (
     <Styled.MainWrapper>
       <Header />

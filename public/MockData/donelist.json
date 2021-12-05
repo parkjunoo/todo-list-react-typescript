@@ -6,20 +6,20 @@
         "cards": [
             {
                 "CardId": 1,
-                "Conentes": "안녕하세요 컨텐츠 1이에요"
+                "contants": "안녕하세요 컨텐츠 1이에요"
             }, 
             {
                 "CardId": 2,
-                "Conentes": "안녕하세요 컨텐츠 1이에요"
+                "contants": "안녕하세요 컨텐츠 1이에요"
 
             },
             {
                 "CardId": 3,
-                "Conentes": "안녕하세요 컨텐츠 1이에요"
+                "contants": "안녕하세요 컨텐츠 1이에요"
             },
             {
                 "CardId": 4,
-                "Conentes": "안녕하세요 컨텐츠 1이에요"
+                "contants": "안녕하세요 컨텐츠 1이에요"
             }]
         
     }
