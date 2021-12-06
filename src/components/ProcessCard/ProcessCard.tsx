@@ -27,8 +27,9 @@ function ProcessCard({ title }: ProcessCardProps) {
       },
     ]);
   };
-  const onClickDeleteCard = (): void => {
-    console.log('delte');
+
+  const onClickDeleteCard = (index: number) => {
+    console.log('delete', index);
     // const newCardList = cardList.splice(idx, 1);
     // setCardList(newCardList);
   };

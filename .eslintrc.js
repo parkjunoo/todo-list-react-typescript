@@ -1,22 +1,16 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  extends: [
-    'plugin:react/recommended', // 리액트 추천 룰셋
-    'plugin:@typescript-eslint/recommended', // 타입스크립트 추천 룰셋
-    // eslint의 typescript 포매팅 기능을 제거(eslint-config-prettier)
-    // eslint의 포매팅 기능을 prettier로 사용함. 항상 마지막에 세팅 되어야 함.
-    'plugin:prettier/recommended',
-  ],
+  extends: ['plugin:react/recommended', 'plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
   parserOptions: {
-    ecmaVersion: 2018, // 최신 문법 지원
-    sourceType: 'module', // 모듈 시스템 사용시
+    ecmaVersion: 2018,
+    sourceType: 'module',
     ecmaFeatures: {
       jsx: true, // 리액트의 JSX 파싱을 위해서
     },
   },
   rules: {
-    // extends에서 적용한 룰셋을 덮어씌울 수 있습니다.
-    // "@typescript-eslint/explicit-function-return-type": "off",
+    '@typescript-eslint/no-empty-function': ['off'],
+    '@typescript-eslint/explicit-module-boundary-types': ['off'],
   },
   settings: {
     react: {

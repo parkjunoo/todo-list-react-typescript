@@ -1,17 +1,17 @@
 import React from 'react';
 import Styled from './Card.styled';
 
-type CardProps = {
-  index?: number;
-  onClickDeleteCard?: () => void;
-};
+interface CardProps {
+  index: number;
+  onClickDeleteCard: (e: number) => void;
+}
 
-function Card({ onClickDeleteCard, index }: CardProps) {
+function Card({ index, onClickDeleteCard }: CardProps) {
   return (
     <Styled.CardWrapper>
       <Styled.CardTop>
         <Styled.CardButtonWrapper>
-          <Styled.DeleteCardButton onClick={onClickDeleteCard}>de</Styled.DeleteCardButton>
+          <Styled.DeleteCardButton onClick={() => onClickDeleteCard(index)}>-</Styled.DeleteCardButton>
           <Styled.ModifyCardButton />
         </Styled.CardButtonWrapper>
       </Styled.CardTop>
