@@ -30,8 +30,8 @@ function ProcessCard({ title }: ProcessCardProps) {
 
   const onClickDeleteCard = (index: number) => {
     console.log('delete', index);
-    // const newCardList = cardList.splice(idx, 1);
-    // setCardList(newCardList);
+    const newCardList = cardList.splice(index, index + 1);
+    setCardList(newCardList);
   };
 
   const getCardList = async (title: string) => {
