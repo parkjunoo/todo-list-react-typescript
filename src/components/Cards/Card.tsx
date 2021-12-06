@@ -12,7 +12,7 @@ function Card({ index, onClickDeleteCard }: CardProps) {
       <Styled.CardTop>
         <Styled.CardButtonWrapper>
           <Styled.DeleteCardButton onClick={() => onClickDeleteCard(index)}>-</Styled.DeleteCardButton>
-          <Styled.ModifyCardButton>+</Styled.ModifyCardButton>
+          <Styled.ModifyCardButton>M</Styled.ModifyCardButton>
         </Styled.CardButtonWrapper>
       </Styled.CardTop>
     </Styled.CardWrapper>

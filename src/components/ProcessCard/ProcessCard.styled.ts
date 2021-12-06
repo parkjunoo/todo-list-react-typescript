@@ -5,7 +5,7 @@ export default {
     display: inline-block;
     margin: 1.6%;
     width: 30%;
-    background-color: #00000044;
+    background-color: #00000015;
     border-radius: 4px;
   `,
 

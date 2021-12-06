@@ -6,4 +6,6 @@ export const Page = styled.div`
   background-color: #f5f4f0;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
 `;
