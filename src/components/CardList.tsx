@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Styled from './CardList.styled';
+import styled from 'styled-components';
 
 type CardListProps = {
   name: string;
