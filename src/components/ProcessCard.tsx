@@ -59,6 +59,7 @@ function ProcessCard({ title }: ProcessCardProps) {
   };
 
   const _onDragStart = (e: any) => {
+    console.log('111');
     setGrab(e.target);
     e.target.classList.add('grabbing');
     e.dataTransfer.effectAllowed = 'move';
@@ -66,12 +67,16 @@ function ProcessCard({ title }: ProcessCardProps) {
   };
 
   const _onDragEnd = (e: any) => {
+    console.log('333');
+
     e.target.classList.remove('grabbing');
 
     e.dataTransfer.dropEffect = 'move';
   };
 
   const _onDrop = (e: any) => {
+    console.log('222');
+
     const grabPosition = Number(grab.dataset.position);
     const targetPosition = Number(e.target.dataset.position);
 
@@ -126,7 +131,7 @@ function ProcessCard({ title }: ProcessCardProps) {
             onDragStart={_onDragStart}
             onDragEnd={_onDragEnd}
             onDrop={_onDrop}
-            key={`cardlist-index-${idx}`}
+            key={`cardlist-list-${idx}`}
           >
             {}
             <Card
