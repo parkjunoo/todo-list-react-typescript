@@ -1,5 +1,5 @@
 import React from 'react';
-import ProcessCard from './ProcessCard';
+import ProcessCard from '../components/ProcessCard';
 import styled from 'styled-components';
 
 const Page = styled.div`

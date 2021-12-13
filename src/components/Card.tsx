@@ -43,10 +43,11 @@ const ModifyCardButton = styled.div`
 
 interface CardProps {
   index: number;
+  contents?: string;
   onClickDeleteCard: (e: number) => void;
 }
 
-function Card({ index, onClickDeleteCard }: CardProps) {
+function Card({ index, onClickDeleteCard, contents }: CardProps) {
   return (
     <CardWrapper>
       <CardTop>
@@ -55,6 +56,7 @@ function Card({ index, onClickDeleteCard }: CardProps) {
           <ModifyCardButton>M</ModifyCardButton>
         </CardButtonWrapper>
       </CardTop>
+      <div>{contents}</div>
     </CardWrapper>
   );
 }

@@ -47,10 +47,39 @@ interface ProcessCardProps {
 interface Card {
   contents: string;
   cardId: number;
+  grab?: any | null;
 }
 
 function ProcessCard({ title }: ProcessCardProps) {
   const [cardList, setCardList] = useState<Card[]>([]);
+  const [grab, setGrab] = useState<any>(null);
+
+  const _onDragOver = (e: any) => {
+    e.preventDefault();
+  };
+
+  const _onDragStart = (e: any) => {
+    setGrab(e.target);
+    e.target.classList.add('grabbing');
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/html', e.target);
+  };
+
+  const _onDragEnd = (e: any) => {
+    e.target.classList.remove('grabbing');
+
+    e.dataTransfer.dropEffect = 'move';
+  };
+
+  const _onDrop = (e: any) => {
+    const grabPosition = Number(grab.dataset.position);
+    const targetPosition = Number(e.target.dataset.position);
+
+    const tempcardList = [...cardList];
+    tempcardList[grabPosition] = cardList.splice(targetPosition, 1, cardList[grabPosition])[0];
+
+    setCardList(cardList);
+  };
 
   useEffect(() => {
     getCardList(title);
@@ -88,9 +117,27 @@ function ProcessCard({ title }: ProcessCardProps) {
         {title}
         <ProcessCardOptionButton />
       </ProcessCardTop>
-      {cardList.map((e, idx) => (
-        <Card key={`cardlist-index-${idx}`} index={idx} onClickDeleteCard={onClickDeleteCard} />
-      ))}
+      <ul>
+        {cardList.map((e, idx) => (
+          <li
+            draggable
+            data-position={idx}
+            onDragOver={_onDragOver}
+            onDragStart={_onDragStart}
+            onDragEnd={_onDragEnd}
+            onDrop={_onDrop}
+            key={`cardlist-index-${idx}`}
+          >
+            {}
+            <Card
+              key={`cardlist-index-${idx}`}
+              contents={e.contents}
+              index={idx}
+              onClickDeleteCard={onClickDeleteCard}
+            />
+          </li>
+        ))}
+      </ul>
       <ProcessCardBottom onClick={onClickAddCard}>+ add Card</ProcessCardBottom>
     </ProcessCardWrapper>
   );
