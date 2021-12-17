@@ -5,15 +5,15 @@
     "cards": [
       {
         "cardId": 1,
-        "contants": "안녕하세요 컨텐츠 1이에요"
+        "contents": "안뇽하세요 첫 번째 컨텐츠에요"
       },
       {
         "cardId": 2,
-        "contants": "안녕하세요 컨텐츠 2이에요"
+        "contents": "반갑습니다 두 번째 컨텐츠에요"
       },
       {
         "cardId": 3,
-        "contants": "안녕하세요 컨텐츠 3이에요"
+        "contents": "안녕히계세요 세 번째 컨테츠에요"
       }
     ]
   }

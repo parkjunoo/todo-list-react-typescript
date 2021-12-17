@@ -1,46 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CardWrapper = styled.div`
-  width: 95%;
-  height: 100px;
-  margin-left: 4px;
-  max-height: 300px;
-  background-color: white;
-  margin-top: 10px;
-  border-radius: 5px;
-  box-shadow: 3px 3px 3px gray;
-`;
-
-const CardTop = styled.div`
-  position: relative;
-  height: 20px;
-  border: 1px solid black;
-  background-color: gray;
-`;
-
-const CardButtonWrapper = styled.div`
-  position: absolute;
-  right: 0;
-`;
-
-const DeleteCardButton = styled.div`
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  margin: 0px 4px;
-  background-color: red;
-`;
-
-const ModifyCardButton = styled.div`
-  margin: 0px 4px;
-
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background-color: blue;
-`;
-
 interface CardProps {
   index: number;
   contents?: string;
@@ -50,15 +10,28 @@ interface CardProps {
 function Card({ index, onClickDeleteCard, contents }: CardProps) {
   return (
     <CardWrapper>
-      <CardTop>
-        <CardButtonWrapper>
-          <DeleteCardButton onClick={() => onClickDeleteCard(index)}>-</DeleteCardButton>
-          <ModifyCardButton>M</ModifyCardButton>
-        </CardButtonWrapper>
-      </CardTop>
+      <div className={'card-top-wrapper'}>
+        <div onClick={() => onClickDeleteCard(index)}>-</div>
+        <div>M</div>
+      </div>
       <div>{contents}</div>
     </CardWrapper>
   );
 }
 
+const CardWrapper = styled.div`
+  width: 100%;
+  height: 100px;
+  max-height: 300px;
+  background-color: #ffffff99;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: 1px solid #38424a70;
+  .card-top-wrapper {
+    position: relative;
+    height: 20px;
+    border: 1px solid #38424a70;
+    border-radius: 5px 5px 0px 0px;
+  }
+`;
 export default Card;
