@@ -14,33 +14,23 @@ interface Card {
 
 function ProcessCard({ title }: ProcessCardProps) {
   const [cardList, setCardList] = useState<Card[]>([]);
-  const [grab, setGrab] = useState<any>(null);
 
-  const _onDragOver = (e: any) => {
-    e.preventDefault();
+  const dragStartHandler = (event: React.DragEvent<HTMLDivElement>, data: Card) => {
+    event.dataTransfer.setData('cardData', JSON.stringify(data));
+    console.log(JSON.stringify(data));
   };
 
-  const _onDragStart = (e: any) => {
-    setGrab(e.target);
-    e.target.classList.add('grabbing');
-    e.dataTransfer.effectAllowed = 'move';
-    e.dataTransfer.setData('text/html', e.target);
+  // This function will be triggered when dropping
+  const dropHandler = (event: React.DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    const data: Card = JSON.parse(event.dataTransfer.getData('cardData'));
+    // setCardList();
   };
 
-  const _onDragEnd = (e: any) => {
-    e.target.classList.remove('grabbing');
-
-    e.dataTransfer.dropEffect = 'move';
-  };
-
-  const _onDrop = (e: any) => {
-    const grabPosition = Number(grab.dataset.position);
-    const targetPosition = Number(e.target.dataset.position);
-
-    const tempcardList = [...cardList];
-    tempcardList[grabPosition] = cardList.splice(targetPosition, 1, cardList[grabPosition])[0];
-
-    setCardList(cardList);
+  // This makes the third box become droppable
+  const allowDrop = (event: React.DragEvent<HTMLDivElement>) => {
+    console.log(event.target);
+    event.preventDefault();
   };
 
   useEffect(() => {
@@ -81,23 +71,21 @@ function ProcessCard({ title }: ProcessCardProps) {
       </ProcessCardTop>
       <ul className="List">
         {cardList.map((e, idx) => (
-          <li
-            draggable
-            data-position={idx}
-            onDragOver={_onDragOver}
-            onDragStart={_onDragStart}
-            onDragEnd={_onDragEnd}
-            onDrop={_onDrop}
-            key={`cardlist-list-${idx}`}
+          <div
+            className="box1"
+            key={`${title}-cardlist-list-${idx}`}
+            onDragStart={(event) => dragStartHandler(event, e)}
+            draggable={true}
+            onDragOver={allowDrop}
+            onDrop={dropHandler}
           >
-            {}
             <Card
               key={`cardlist-index-${idx}`}
               contents={e.contents}
               index={idx}
               onClickDeleteCard={onClickDeleteCard}
             />
-          </li>
+          </div>
         ))}
       </ul>
       <ProcessCardBottom onClick={onClickAddCard}>+ add Card</ProcessCardBottom>

@@ -4,14 +4,17 @@
     "type": "doing",
     "cards": [
       {
+        "status": "todo",
         "cardId": 1,
         "contents": "안뇽하세요 첫 번째 컨텐츠에요"
       },
       {
+        "status": "todo",
         "cardId": 2,
         "contents": "반갑습니다 두 번째 컨텐츠에요"
       },
       {
+        "status": "todo",
         "cardId": 3,
         "contents": "안녕히계세요 세 번째 컨테츠에요"
       }

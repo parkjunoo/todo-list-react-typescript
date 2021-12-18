@@ -4,6 +4,7 @@ import styled from 'styled-components';
 type CardListProps = {
   name: string;
   mark: string;
+  onDragStart: (param: any) => void;
 };
 
 function CardList({ name, mark }: CardListProps) {

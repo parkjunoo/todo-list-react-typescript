@@ -4,6 +4,7 @@
     "type": "doing",
     "cards": [
       {
+        "status": "doing",
         "CardId": 1,
         "contants": "안녕하세요 컨텐츠 1이에요"
       }

@@ -11,8 +11,10 @@ function Card({ index, onClickDeleteCard, contents }: CardProps) {
   return (
     <CardWrapper>
       <div className={'card-top-wrapper'}>
-        <div onClick={() => onClickDeleteCard(index)}>-</div>
-        <div>M</div>
+        <div>
+          <div onClick={() => onClickDeleteCard(index)}>-</div>
+          <div>M</div>
+        </div>
       </div>
       <div>{contents}</div>
     </CardWrapper>
@@ -25,7 +27,7 @@ const CardWrapper = styled.div`
   max-height: 300px;
   background-color: #ffffff99;
   margin-top: 10px;
-  border-radius: 6px;
+  border-radius: 5px;
   border: 1px solid #38424a70;
   .card-top-wrapper {
     position: relative;
