@@ -14,13 +14,13 @@ function Card({ index, onClickDeleteCard, contents }: CardProps) {
         <div className="card-top-area"></div>
         <div className="card-bottom-area"></div>
       </div>
-      <div className={'card-top-wrapper'}>
-        <div>
+      <div className="card-body">
+        <div className={'card-top-wrapper'}>
           <div onClick={() => onClickDeleteCard(index)}>-</div>
           <div>M</div>
         </div>
+        <div>{contents}</div>
       </div>
-      <div>{contents}</div>
     </CardWrapper>
   );
 }
@@ -38,24 +38,29 @@ const CardWrapper = styled.div`
     position: absolute;
     width: 100%;
     height: 20px;
-    border: 1px solid #38424a70;
     border-radius: 5px 5px 0px 0px;
+    top: 0;
+  }
+  .card-body {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    top: 0px;
   }
   .drag-mode-area {
+    z-index: 1;
     position: relative;
-    background-color: red;
+    background-color: #00000000;
     width: 100%;
     height: 100%;
     .card-top-area {
       position: absolute;
-      background-color: green;
       width: 100%;
       height: 50%;
       top: 0;
     }
     .card-bottom-area {
       position: absolute;
-      background-color: blue;
       width: 100%;
       height: 50%;
       bottom: 0;
