@@ -9,7 +9,6 @@ interface ProcessCardProps {
 interface Card {
   contents: string;
   cardId: number;
-  grab?: any | null;
 }
 
 function ProcessCard({ title }: ProcessCardProps) {
@@ -17,19 +16,20 @@ function ProcessCard({ title }: ProcessCardProps) {
 
   const dragStartHandler = (event: React.DragEvent<HTMLDivElement>, data: Card) => {
     event.dataTransfer.setData('cardData', JSON.stringify(data));
-    console.log(JSON.stringify(data));
+    console.log('start', data);
   };
 
   // This function will be triggered when dropping
-  const dropHandler = (event: React.DragEvent<HTMLDivElement>) => {
+  const dropHandler = (event: React.DragEvent<HTMLDivElement>, card: any) => {
     event.preventDefault();
     const data: Card = JSON.parse(event.dataTransfer.getData('cardData'));
+    console.log(card);
     // setCardList();
   };
 
   // This makes the third box become droppable
   const allowDrop = (event: React.DragEvent<HTMLDivElement>) => {
-    console.log(event.target);
+    // console.log(event.target);
     event.preventDefault();
   };
 
@@ -77,7 +77,7 @@ function ProcessCard({ title }: ProcessCardProps) {
             onDragStart={(event) => dragStartHandler(event, e)}
             draggable={true}
             onDragOver={allowDrop}
-            onDrop={dropHandler}
+            onDrop={(event) => dropHandler(event, e)}
           >
             <Card
               key={`cardlist-index-${idx}`}
