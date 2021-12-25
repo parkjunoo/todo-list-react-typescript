@@ -69,25 +69,18 @@ function ProcessCard({ title }: ProcessCardProps) {
         {title}
         <ProcessCardOptionButton />
       </ProcessCardTop>
-      <ul className="List">
-        {cardList.map((e, idx) => (
-          <div
-            className="box1"
-            key={`${title}-cardlist-list-${idx}`}
-            onDragStart={(event) => dragStartHandler(event, e)}
-            draggable={true}
-            onDragOver={allowDrop}
-            onDrop={(event) => dropHandler(event, e)}
-          >
-            <Card
-              key={`cardlist-index-${idx}`}
-              contents={e.contents}
-              index={idx}
-              onClickDeleteCard={onClickDeleteCard}
-            />
-          </div>
-        ))}
-      </ul>
+      {cardList.map((e, idx) => (
+        <div
+          className="box1"
+          key={`${title}-cardlist-list-${idx}`}
+          onDragStart={(event) => dragStartHandler(event, e)}
+          draggable={true}
+          onDragOver={allowDrop}
+          onDrop={(event) => dropHandler(event, e)}
+        >
+          <Card key={`cardlist-index-${idx}`} contents={e.contents} index={idx} onClickDeleteCard={onClickDeleteCard} />
+        </div>
+      ))}
       <ProcessCardBottom onClick={onClickAddCard}>+ add Card</ProcessCardBottom>
     </ProcessCardWrapper>
   );
