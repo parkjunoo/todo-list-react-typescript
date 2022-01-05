@@ -1,4 +1,6 @@
 import React, { DragEvent, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { remove, add } from '../store/modules/cardProcess';
 import Card from './Card';
 import todoApi from '../service/todo';
 import styled from 'styled-components';
@@ -12,10 +14,12 @@ interface Card {
 }
 
 function ProcessCard({ title }: ProcessCardProps) {
+  const dispatch = useDispatch();
   const [cardList, setCardList] = useState<Card[]>([]);
   const [grabedCard, setGrabedCard] = useState<Card[]>([]);
   const dragStartHandler = (e: React.DragEvent<HTMLDivElement>, card: Card) => {
     const $target = e.target as HTMLElement;
+    dispatch(add());
     // $target.classList.add('starting-drag');
     e.dataTransfer.setData('cardData', JSON.stringify(card));
     const findCard = cardList.findIndex((e) => e === card);
